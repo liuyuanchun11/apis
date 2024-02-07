@@ -378,3 +378,14 @@ type QueueList struct {
 	// items is the list of PodGroup
 	Items []Queue `json:"items" protobuf:"bytes,2,rep,name=items"`
 }
+
+type PodAffinitySchedInfo struct {
+	// AffinityGroupSize The number of pods that require affinity scheduling
+	AffinityGroupSize int32 `json:"affinityGroupSize" protobuf:bytes,1,name=affinityGroupSize"`
+
+	// AffinityGroupId The number of pod affinity group id
+	AffinityGroupId string `json:"affinityGroupId" protobuf:"bytes,2,name=affinityGroupId"`
+
+	// AffinityGroupIndex The number of pod index in the affinity group
+	AffinityGroupIndex int32 `json:"affinityGroupIndex" protobuf:"bytes,3,name=affinityGroupIndex"`
+}

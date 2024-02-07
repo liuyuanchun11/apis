@@ -67,3 +67,6 @@ const TopologyDecisionAnnotation = "volcano.sh/topology-decision"
 
 // PodQosLevel is the key of pod qos level
 const PodQosLevel = "volcano.sh/qos-level"
+
+// AffinityLevel is the key of pod affinity scheduling information
+const AffinitySchedulingInfo = "volcano.sh/affinity-scheduling-info"
