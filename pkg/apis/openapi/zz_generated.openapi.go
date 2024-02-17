@@ -98,6 +98,7 @@ func GetOpenAPIDefinitions(ref common.ReferenceCallback) map[string]common.OpenA
 		"volcano.sh/apis/pkg/apis/scheduling/v1beta1.Guarantee":             schema_pkg_apis_scheduling_v1beta1_Guarantee(ref),
 		"volcano.sh/apis/pkg/apis/scheduling/v1beta1.NodeGroupAffinity":     schema_pkg_apis_scheduling_v1beta1_NodeGroupAffinity(ref),
 		"volcano.sh/apis/pkg/apis/scheduling/v1beta1.NodeGroupAntiAffinity": schema_pkg_apis_scheduling_v1beta1_NodeGroupAntiAffinity(ref),
+		"volcano.sh/apis/pkg/apis/scheduling/v1beta1.PodAffinitySchedInfo":  schema_pkg_apis_scheduling_v1beta1_PodAffinitySchedInfo(ref),
 		"volcano.sh/apis/pkg/apis/scheduling/v1beta1.PodGroup":              schema_pkg_apis_scheduling_v1beta1_PodGroup(ref),
 		"volcano.sh/apis/pkg/apis/scheduling/v1beta1.PodGroupCondition":     schema_pkg_apis_scheduling_v1beta1_PodGroupCondition(ref),
 		"volcano.sh/apis/pkg/apis/scheduling/v1beta1.PodGroupList":          schema_pkg_apis_scheduling_v1beta1_PodGroupList(ref),
@@ -3150,6 +3151,13 @@ func schema_pkg_apis_batch_v1alpha1_TaskSpec(ref common.ReferenceCallback) commo
 							Ref:         ref("volcano.sh/apis/pkg/apis/batch/v1alpha1.DependsOn"),
 						},
 					},
+					"affinityGroupSize": {
+						SchemaProps: spec.SchemaProps{
+							Description: "The number of pods that require affinity scheduling. Defaults to 1.",
+							Type:        []string{"integer"},
+							Format:      "int32",
+						},
+					},
 				},
 			},
 		},
@@ -3397,6 +3405,43 @@ func schema_pkg_apis_scheduling_v1beta1_NodeGroupAntiAffinity(ref common.Referen
 						},
 					},
 				},
+			},
+		},
+	}
+}
+
+func schema_pkg_apis_scheduling_v1beta1_PodAffinitySchedInfo(ref common.ReferenceCallback) common.OpenAPIDefinition {
+	return common.OpenAPIDefinition{
+		Schema: spec.Schema{
+			SchemaProps: spec.SchemaProps{
+				Type: []string{"object"},
+				Properties: map[string]spec.Schema{
+					"affinityGroupSize": {
+						SchemaProps: spec.SchemaProps{
+							Description: "AffinityGroupSize The number of pods that require affinity scheduling",
+							Default:     0,
+							Type:        []string{"integer"},
+							Format:      "int32",
+						},
+					},
+					"affinityGroupId": {
+						SchemaProps: spec.SchemaProps{
+							Description: "AffinityGroupId The number of pod affinity group id",
+							Default:     "",
+							Type:        []string{"string"},
+							Format:      "",
+						},
+					},
+					"affinityGroupIndex": {
+						SchemaProps: spec.SchemaProps{
+							Description: "AffinityGroupIndex The number of pod index in the affinity group",
+							Default:     0,
+							Type:        []string{"integer"},
+							Format:      "int32",
+						},
+					},
+				},
+				Required: []string{"affinityGroupSize", "affinityGroupId", "affinityGroupIndex"},
 			},
 		},
 	}
