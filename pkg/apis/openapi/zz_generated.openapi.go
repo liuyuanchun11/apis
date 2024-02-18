@@ -3896,6 +3896,13 @@ func schema_pkg_apis_scheduling_v1beta1_QueueSpec(ref common.ReferenceCallback) 
 							Format:      "",
 						},
 					},
+					"parent": {
+						SchemaProps: spec.SchemaProps{
+							Description: "Parent define the parent of queue",
+							Type:        []string{"string"},
+							Format:      "",
+						},
+					},
 				},
 			},
 		},
