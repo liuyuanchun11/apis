@@ -45,8 +45,4 @@ const (
 	OrginalNameKey = "volcano.sh/burst-name"
 	// BurstToSiloClusterAnnotation labels key for resource only in silo cluster
 	BurstToSiloClusterAnnotation = "volcano.sh/silo-resource"
-	// Environment variable of affinity node group key
-	ENVAffinityNodeGroupKey = "AFFINITY_NODE_GROUP_KEY"
-	// AffinityNodeGroupKey affinity group of a node
-	DefaultAffinityNodeGroupKey = "volcano.sh/affinity-node-group"
 )
