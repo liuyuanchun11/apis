@@ -308,6 +308,11 @@ func (in *TaskSpec) DeepCopyInto(out *TaskSpec) {
 		*out = new(DependsOn)
 		(*in).DeepCopyInto(*out)
 	}
+	if in.AffinityGroupSize != nil {
+		in, out := &in.AffinityGroupSize, &out.AffinityGroupSize
+		*out = new(int32)
+		**out = **in
+	}
 	return
 }
 
