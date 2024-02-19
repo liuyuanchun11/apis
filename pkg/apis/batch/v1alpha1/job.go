@@ -223,7 +223,7 @@ type TaskSpec struct {
 	// The number of pods that require affinity scheduling.
 	// Defaults to 1.
 	// +optional
-	AffinityGroupSize int32 `json:"affinityGroupSize,omitempty" protobuf:"bytes,9,opt,name=affinityGroupSize"`
+	AffinityGroupSize *int32 `json:"affinityGroupSize,omitempty" protobuf:"bytes,9,opt,name=affinityGroupSize"`
 }
 
 // JobPhase defines the phase of the job.
