@@ -32,7 +32,7 @@ func (c *FakeBatchV1alpha1) HyperJobs(namespace string) v1alpha1.HyperJobInterfa
 }
 
 func (c *FakeBatchV1alpha1) Jobs(namespace string) v1alpha1.JobInterface {
-	return &FakeJobs{c, namespace}
+	return newFakeJobs(c, namespace)
 }
 
 // RESTClient returns a RESTClient that is used to communicate
