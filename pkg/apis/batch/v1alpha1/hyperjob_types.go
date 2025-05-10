@@ -41,18 +41,15 @@ type HyperJobSpec struct {
 	// succeeded.
 	// The HyperJob is always declared succeeded if all jobs in the set
 	// finished with status complete.
-	// +kubebuilder:validation:XValidation:rule="self == oldSelf",message="Value is immutable"
 	SuccessPolicy *SuccessPolicy `json:"successPolicy,omitempty" protobuf:"bytes,4,opt,name=successPolicy"`
 
 	// FailurePolicy, if set, configures when to declare the HyperJob as
 	// failed.
 	// The HyperJob is always declared failed if any job in the set
 	// finished with status failed.
-	// +kubebuilder:validation:XValidation:rule="self == oldSelf",message="Value is immutable"
 	FailurePolicy *FailurePolicy `json:"failurePolicy,omitempty" protobuf:"bytes,5,opt,name=failurePolicy"`
 
 	// StartupPolicy, if set, configures in what order jobs must be started
-	// +kubebuilder:validation:XValidation:rule="self == oldSelf",message="Value is immutable"
 	StartupPolicy *StartupPolicy `json:"startupPolicy,omitempty" protobuf:"bytes,6,opt,name=startupPolicy"`
 }
 
